@@ -1,13 +1,15 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Course = () => {
+const { id, name, description, students, time, teacher, T_img, skill, img } = useLoaderData()
   return (
     <div>
       <div className="course-main-part px-4 mt-20 mb-20 lg:px-20 xl:px-40 flex justify-center items-center gap-10 ">
         <div className="course-left w-[50%]">
           <img
             className="rounded-md w-[100%] "
-            src="https://images.unsplash.com/photo-1666632000754-3eb0e1e59c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+            src={img}
             alt=""
             srcset=""
           />
@@ -16,30 +18,25 @@ const Course = () => {
         {/* course name */}
         <div className="course-right w-[50%]">
           <h1 className="text-3xl font-general font-[600] mb-4">
-            Random javascript Course
+            {name}
           </h1>
           <p className="font-general font-medium mb-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            veritatis, reprehenderit dolorem minus enim repellat. Magnam veniam
-            aperiam enim quo nesciunt accusantium dignissimos veritatis saepe
-            eligendi voluptatibus, ad eius in sit. Asperiores, suscipit.
-            Excepturi dolorum iste a enim beatae quos odit ex aspernatur
-            mollitia? Eos eius ut non blanditiis vero?
+           {description}
           </p>
 
           {/* instructor details*/}
           <div className="instructro-section flex gap-2 items-center">
             <img
               class="w-10 h-10 rounded-full"
-              src="https://celadon-granita-38dd91.netlify.app/images/avatar.jpg"
+              src={T_img}
               alt="Rounded avatar"
             />
             <div className="details">
               <div className="name font-general font-[600] text-xl">
-                Rejwan Ahamed
+                {teacher}
               </div>
               <div className="skill font-general font-medium">
-                Senior Backend DEV
+                {skill}
               </div>
             </div>
           </div>
@@ -61,7 +58,7 @@ const Course = () => {
                   d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <p>250</p>
+              <p>{students}</p>
             </div>
             <div className="right flex gap-1">
               <svg
@@ -78,7 +75,7 @@ const Course = () => {
                   d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <p>200m</p>
+              <p>{time}</p>
             </div>
           </div>
 
