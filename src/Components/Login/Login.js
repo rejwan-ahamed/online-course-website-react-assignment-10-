@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/MainContext";
 import toast from "react-hot-toast";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
@@ -9,6 +9,9 @@ const Login = () => {
   const { userSignIN, googleSignIN, githubSignIN } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const gitProvider = new GithubAuthProvider();
+  const location = useLocation();
+  const navigate = useNavigate()
+  const froms = location.state?.from?.pathname || "/";
   const loginFromSubmit = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -21,6 +24,7 @@ const Login = () => {
         console.log(res);
         from.reset();
         toast.success("You are successfully login");
+        navigate(froms, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
@@ -32,6 +36,7 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         toast.success("you are successfully login");
+        navigate(froms, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
@@ -43,6 +48,7 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         toast.success("you are successfully login");
+        navigate(froms, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);

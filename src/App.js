@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import CheckOut from "./Components/CheckOut/CheckOut";
 import Buy from "./Components/Buy/Buy";
 import NotFound from "./Components/NotFound/NotFound";
+import Private from "./Routs/Private";
 
 function App() {
   const routs = createBrowserRouter([
@@ -40,14 +41,22 @@ function App() {
         },
         {
           path: "/checkOut/:id",
-          element: <CheckOut></CheckOut>,
+          element: (
+            <Private>
+              <CheckOut></CheckOut>
+            </Private>
+          ),
           loader: async ({ params }) => {
             return await fetch(`http://localhost:5002/course/${params.id}`);
           },
         },
         {
           path: "/buy",
-          element: <Buy></Buy>,
+          element: (
+            <Private>
+              <Buy></Buy>
+            </Private>
+          ),
         },
       ],
     },

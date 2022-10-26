@@ -38,14 +38,17 @@ const MainContext = ({ children }) => {
 
   // google sign in
   const googleSignIN = (provider) => {
+    setLoader(true)
     return signInWithPopup(auth, provider);
   };
   // github sign in
   const githubSignIN = (provider) => {
+    setLoader(true)
     return signInWithPopup(auth, provider);
   };
   //   user logout
   const userLogout = () => {
+    setLoader(true)
     return signOut(auth);
   };
 
