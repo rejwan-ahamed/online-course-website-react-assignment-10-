@@ -23,7 +23,7 @@ const Courses = () => {
         {/* empty div */}
         <div className="empty-div col-span-1"></div>
         <div className="right-side-bar col-span-2 bg-blue-100 rounded-md h-max">
-          <ol className="lg:p-10 font-general font-medium text-xl">
+          <ol className="lg:p-6 font-general font-medium text-xl">
             <li className="p-2 hover:bg-blue-300 hover:p-2 hover:rounded-md ">
               <Link>Javascript</Link>
             </li>
