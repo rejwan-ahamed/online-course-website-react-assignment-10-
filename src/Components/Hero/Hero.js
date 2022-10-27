@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -13,18 +14,18 @@ const Hero = () => {
             creativity. What you find just might surprise and inspire you.
           </p>
           <div className="button-group mt-8 block mb-6 mx-auto lg:mx-0 lg:mb-0 lg:flex">
-            <button
+            <Link to='/login'
               type="button"
               class="text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 w-full lg:w-max dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               Sign Up Now
-            </button>
-            <button
+            </Link>
+            <Link to='/courses'
               type="button"
               class="text-orange-500 bg-transparent border border-orange-500 hover:bg-orange-500 hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 w-full  lg:w-max dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               Enroll Now
-            </button>
+            </Link>
           </div>
         </div>
         <div className="hero-right">

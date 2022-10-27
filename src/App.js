@@ -27,7 +27,7 @@ function App() {
           path: "/courses",
           element: <Courses></Courses>,
           loader: async () => {
-            return await fetch("http://localhost:5002/course");
+            return await fetch("http://localhost:5000/course");
           },
         },
         { path: "/blog", element: <Blog></Blog> },
@@ -36,7 +36,7 @@ function App() {
           path: "/course/:id",
           element: <Course></Course>,
           loader: async ({ params }) => {
-            return await fetch(`http://localhost:5002/course/${params.id}`);
+            return await fetch(`http://localhost:5000/course/${params.id}`);
           },
         },
         {
@@ -47,7 +47,7 @@ function App() {
             </Private>
           ),
           loader: async ({ params }) => {
-            return await fetch(`http://localhost:5002/course/${params.id}`);
+            return await fetch(`http://localhost:5000/course/${params.id}`);
           },
         },
         {
