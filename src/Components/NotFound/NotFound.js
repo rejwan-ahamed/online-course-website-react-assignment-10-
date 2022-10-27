@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Buy = () => {
   return (
-    <div className="flex flex-col justify-center items-center px-40">
-        <h1 className="font-general text-3xl font-[600] py-10">Lost our route</h1>
+    <div className="flex flex-col justify-center items-center px-4 lg:px-40">
+        <h1 className="font-general text-3xl font-[600] py-10">Lost our route.</h1>
       <div className="main-section flex justify-center item-center w-full mb-6">
         <img src="/assets/images/404.svg" alt="" srcset="" className="w-[25rem]" />
       </div>

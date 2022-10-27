@@ -5,10 +5,10 @@ const Course = () => {
 const { id, name, description, students, time, teacher, T_img, skill, img } = useLoaderData()
   return (
     <div>
-      <div className="course-main-part px-4 mt-20 mb-20 lg:px-20 xl:px-40 flex justify-center items-center gap-10 ">
-        <div className="course-left w-[50%]">
+      <div className="course-main-part px-4 mt-20 mb-20 block lg:px-20 xl:px-40 lg:flex justify-center items-start lg:gap-10 ">
+        <div className="course-left w-full lg:w-[50%]">
           <img
-            className="rounded-md w-[100%] border-2 border-black"
+            className="rounded-md mb-10 w-[100%] lg:w-[100%] lg:mb-0 border-2 border-black"
             src={img}
             alt=""
             srcset=""
@@ -16,7 +16,7 @@ const { id, name, description, students, time, teacher, T_img, skill, img } = us
         </div>
 
         {/* course name */}
-        <div className="course-right w-[50%]">
+        <div className="course-right w-[100%] lg:w-[50%]">
           <h1 className="text-3xl font-general font-[600] mb-4">
             {name}
           </h1>

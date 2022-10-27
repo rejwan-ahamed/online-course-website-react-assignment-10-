@@ -2,14 +2,17 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const CheckOut = () => {
-const { id, name, description, students, time, teacher, T_img, skill, img } = useLoaderData()
+  const { id, name, description, students, time, teacher, T_img, skill, img } =
+    useLoaderData();
   return (
     <div>
-      <h1 className="font-general text-3xl text-center font-[600] py-10">Check out page</h1>
-      <div className="course-main-part px-4 mt-20 mb-20 lg:px-20 xl:px-40 flex justify-center items-center gap-10 ">
-        <div className="course-left w-[50%]">
+      <h1 className="font-general text-3xl text-center font-[600] py-10">
+        Check out page
+      </h1>
+      <div className="course-main-part px-4 mt-3 mb-10 lg:mt-20  lg:mb-20 lg:px-20 xl:px-40 block lg:flex justify-center items-start gap-10 ">
+        <div className="course-left w-[100%] lg:w-[50%]">
           <img
-            className="rounded-md w-[100%] border-2 border-black"
+            className="rounded-md w-[100%] mb-10 lg:mb-0 border-2 border-black"
             src={img}
             alt=""
             srcset=""
@@ -17,13 +20,9 @@ const { id, name, description, students, time, teacher, T_img, skill, img } = us
         </div>
 
         {/* course name */}
-        <div className="course-right w-[50%]">
-          <h1 className="text-3xl font-general font-[600] mb-4">
-            {name}
-          </h1>
-          <p className="font-general font-medium mb-8">
-           {description}
-          </p>
+        <div className="course-right w-[100%] lg:w-[50%]">
+          <h1 className="text-3xl font-general font-[600] mb-4">{name}</h1>
+          <p className="font-general font-medium mb-8">{description}</p>
 
           {/* instructor details*/}
           <div className="instructro-section flex gap-2 items-center">
@@ -36,9 +35,7 @@ const { id, name, description, students, time, teacher, T_img, skill, img } = us
               <div className="name font-general font-[600] text-xl">
                 {teacher}
               </div>
-              <div className="skill font-general font-medium">
-                {skill}
-              </div>
+              <div className="skill font-general font-medium">{skill}</div>
             </div>
           </div>
 
@@ -82,7 +79,8 @@ const { id, name, description, students, time, teacher, T_img, skill, img } = us
 
           {/* button group */}
           <div className="button-group block lg:flex">
-            <Link to={`/buy`}
+            <Link
+              to={`/buy`}
               type="button"
               class="text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full lg:w-max dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
