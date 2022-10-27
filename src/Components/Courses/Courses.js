@@ -1,12 +1,12 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Card from "../Crad/Card";
-import CourseLinks from "../links/CourseLinks";
+import CourseLinks from '../../Components/links/CourseLinks'
+
 
 const Courses = () => {
-  const datas = useLoaderData();
+  const mainData = useLoaderData();
+  console.log(mainData)
 
   return (
     <div className=" lg:mb-40">
@@ -30,11 +30,13 @@ const Courses = () => {
         <div className="empty-div col-span-1"></div>
         <div className="right-side-bar col-span-2 bg-blue-100 rounded-md h-max">
           <ol className="lg:p-6 font-general font-medium text-xl">
-           
+          {mainData.map((data, id) => (
+           <CourseLinks links={data} key={id}></CourseLinks>
+          ))}
           </ol>
         </div>
         <div className="course-cards-main font-general grid grid-cols-1 px-4 lg:grid-cols-3 lg:pl-0 gap-3 lg:col-span-7 lg:px-20 xl:px-40 xl:pl-6">
-          {datas.map((data, id) => (
+          {mainData.map((data, id) => (
             <Card courseData={data} key={id}></Card>
           ))}
         </div>
