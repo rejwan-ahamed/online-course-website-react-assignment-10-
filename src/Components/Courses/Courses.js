@@ -25,10 +25,10 @@ const Courses = () => {
       </div>
 
       {/* courses card part here */}
-      <div className="course-main-body lg:grid lg:grid-cols-10">
+      <div className="course-main-body lg:grid lg:grid-cols-10 lg:gap-6 xl:gap-0">
         {/* empty div */}
-        <div className="empty-div col-span-1"></div>
-        <div className="right-side-bar col-span-2 bg-blue-100 rounded-md h-max">
+        <div className="empty-div col-span-1 lg:col-span-0 xl:col-span-1"></div>
+        <div className="right-side-bar col-span-2 bg-blue-100 rounded-md h-max m-4 p-6 lg:p-0 lg:m-0">
           <ol className="lg:p-6 font-general font-medium text-xl">
           {mainData.map((data, id) => (
            <CourseLinks links={data} key={id}></CourseLinks>
