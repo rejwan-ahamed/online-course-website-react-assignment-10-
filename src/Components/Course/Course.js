@@ -1,10 +1,17 @@
 import React from "react";
+import { useRef } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { useReactToPrint } from "react-to-print";
 
 const Course = () => {
-const { id, name, description, students, time, teacher, T_img, skill, img } = useLoaderData()
+  const { id, name, description, students, time, teacher, T_img, skill, img } =
+    useLoaderData();
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
   return (
-    <div>
+    <div ref={componentRef}>
       <div className="course-main-part px-4 mt-20 mb-20 block lg:px-20 xl:px-40 lg:flex justify-center items-start lg:gap-10 ">
         <div className="course-left w-full lg:w-[50%]">
           <img
@@ -17,12 +24,8 @@ const { id, name, description, students, time, teacher, T_img, skill, img } = us
 
         {/* course name */}
         <div className="course-right w-[100%] lg:w-[50%]">
-          <h1 className="text-3xl font-general font-[600] mb-4">
-            {name}
-          </h1>
-          <p className="font-general font-medium mb-8">
-           {description}
-          </p>
+          <h1 className="text-3xl font-general font-[600] mb-4">{name}</h1>
+          <p className="font-general font-medium mb-8">{description}</p>
 
           {/* instructor details*/}
           <div className="instructro-section flex gap-2 items-center">
@@ -35,9 +38,7 @@ const { id, name, description, students, time, teacher, T_img, skill, img } = us
               <div className="name font-general font-[600] text-xl">
                 {teacher}
               </div>
-              <div className="skill font-general font-medium">
-                {skill}
-              </div>
+              <div className="skill font-general font-medium">{skill}</div>
             </div>
           </div>
 
@@ -81,13 +82,15 @@ const { id, name, description, students, time, teacher, T_img, skill, img } = us
 
           {/* button group */}
           <div className="button-group block lg:flex">
-            <Link to={`/checkOut/${id}`}
+            <Link
+              to={`/checkOut/${id}`}
               type="button"
               class="text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full lg:w-max dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Join Premium Class
             </Link>
             <button
+              onClick={handlePrint}
               type="button"
               class="flex justify-center items-center gap-1 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full lg:w-max dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
